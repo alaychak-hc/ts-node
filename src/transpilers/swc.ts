@@ -130,6 +130,7 @@ export function create(createOptions: SwcTranspilerOptions): Transpiler {
           tsx: isTsx,
           decorators: experimentalDecorators,
           dynamicImport: true,
+          importAssertions: true,
         },
         target: swcTarget,
         transform: {
@@ -144,6 +145,9 @@ export function create(createOptions: SwcTranspilerOptions): Transpiler {
           } as swcTypes.ReactConfig,
         },
         keepClassNames,
+        experimental: {
+          keepImportAssertions: true,
+        },
       } as swcTypes.JscConfig,
     };
   }
